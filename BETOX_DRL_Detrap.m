@@ -60,7 +60,7 @@ nt_tn1 = BE_Conc;
 
 Vg = 0;
 Vch = 0;
-CTN_slice = 1;
+CTN_slice = 20;
 Rad = setRadius(20e-7, 8e-7, 2e-7, 2e-7, 0.9e-7, 6e-7, 8e-7, 2e-7, CTN_slice); % DRL Spec
 % Rad = setRadius(20e-7, 8e-7, 2.5e-7, 2e-7, 0.9e-7, 6e-7, 8e-7, 2e-7); % DRL Spec
 % Rad = setRadius(20e-7, 8e-7, 3.0e-7, 2e-7, 0.9e-7, 6e-7, 8e-7, 2e-7); % DRL Spec
@@ -85,8 +85,8 @@ Rad = setRadius(20e-7, 8e-7, 2e-7, 2e-7, 0.9e-7, 6e-7, 8e-7, 2e-7, CTN_slice); %
 % psi_surface = psi_s(Rad, Para, Vth_ini)
 
 nt_ctn = zeros(CTN_slice,1);
-for i = 1:length(nt_ctn)
-    nt_ctn(i) = .405e19;
+for i = 1:5
+    nt_ctn(i) = 4e19;
 end
 
 % x = setFieldParameters(Rad, Para, Vch, Vg, nt_tn1, nt_ctn, CTN_slice)
