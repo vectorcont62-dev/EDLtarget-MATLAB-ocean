@@ -1,12 +1,12 @@
 function Para = InitializeParameters(temperature)
 Para = struct();
 Para.q_e = 1.6e-19;
-Para.q = 1.6e-19;
+Para.q = 1.6e-19; % [C]
 % Para.T = 298;
 Para.T = temperature;
 Para.h = 6.6e-34; % [Js]
 Para.h_bar = Para.h/2/pi;
-Para.e_0 = 8.85e-14;
+Para.e_0 = 8.85e-14; %[F/cm]
 Para.e_si = 11.7*Para.e_0;
 Para.e_n = 7.5*Para.e_0;
 Para.e_SiON = 6.0*Para.e_0;
