@@ -50,6 +50,7 @@ for i=1:length(r.r)
         V_instant_CTN(1) = Ko1/p.e_ox*log(r.r_tox1/r.r_0) ...
             + Kn1/p.e_SiON*log(r.r_tn1/r.r_tox1) + q*nt_n1/4/p.e_SiON*(r.r_tn1^2-r.r_tox1^2)...
             + Ko2/p.e_ox*log(r.r_tox/r.r_tn1) + KCTN(1)/p.e_ox*log(r.r(i)/r.r_o2) + q*nt_ctn(1)/4/p.e_n*(r.r(i)^2-r.r_o2^2);
+        % V_instant_CTN(1) = V_instant_o2 + KCTN(1)/p.e_ox*log(r.r(i)/r.r_o2) + q*nt_ctn(1)/4/p.e_n*(r.r(i)^2-r.r_o2^2);
         V_c(i) = V_instant_CTN(1);
         Ec(i) = p.PHI_B_SiN-V_c(i);
         Ev(i) = Ec(i) - p.E_bandgap_SiN;
