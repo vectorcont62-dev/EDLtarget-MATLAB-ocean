@@ -65,7 +65,12 @@ for i=1:length(r.r)
         Efield(i) = - KCTN(slice_num)/p.e_n/r.r(i) - p.q*nt_ctn(slice_num)/2/p.e_n*r.r(i);
 
     elseif (r.r(i)>= r.r_CTN(N) && r.r(i)<r.r_box)
-        V_instant_BOX = V_instant_CTN(N) + KBOX/p.e_ox*log(r.r(i)/r.r_CTN(N));
+        % V_instant_BOX = V_instant_CTN(N) + KBOX/p.e_ox*log(r.r(i)/r.r_CTN(N));
+        V_instant_BOX= Ko1/p.e_ox*log(r.r_tox1/r.r_0) ...
+            + Kn1/p.e_SiON*log(r.r_tn1/r.r_tox1) + q*nt_n1/4/p.e_SiON*(r.r_n1^2-r.r_tox1^2)...
+            + Ko2/p.e_ox*log(r.r_tox/r.r_tn1)...
+            + KCTN(1)/p.e_n*log(r.r_ctn/r.r_tox) + q*nt_ctn/4/p.e_n*(r.r_ctn^2-r.r_tox^2)...
+            + KBOX/p.e_ox*log(r.r(i)/r.r_ctn);
         V_c(i) = V_instant_BOX;
         Ec(i) = p.PHI_B_SiO2 - V_c(i);
         Ev(i) = Ec(i) - p.E_bandgap_SiO2;
